@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/covid-jaankari/static/css/main.0327d44d.chunk.css",
+    "main.js": "/covid-jaankari/static/js/main.78ddcf36.chunk.js",
+    "main.js.map": "/covid-jaankari/static/js/main.78ddcf36.chunk.js.map",
+    "runtime-main.js": "/covid-jaankari/static/js/runtime-main.4deb4d4f.js",
+    "runtime-main.js.map": "/covid-jaankari/static/js/runtime-main.4deb4d4f.js.map",
+    "static/css/2.150d169a.chunk.css": "/covid-jaankari/static/css/2.150d169a.chunk.css",
+    "static/js/2.1416774d.chunk.js": "/covid-jaankari/static/js/2.1416774d.chunk.js",
+    "static/js/2.1416774d.chunk.js.map": "/covid-jaankari/static/js/2.1416774d.chunk.js.map",
+    "static/js/3.f530e7db.chunk.js": "/covid-jaankari/static/js/3.f530e7db.chunk.js",
+    "static/js/3.f530e7db.chunk.js.map": "/covid-jaankari/static/js/3.f530e7db.chunk.js.map",
+    "index.html": "/covid-jaankari/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/covid-jaankari/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.0327d44d.chunk.css.map": "/covid-jaankari/static/css/main.0327d44d.chunk.css.map",
+    "static/js/2.1416774d.chunk.js.LICENSE.txt": "/covid-jaankari/static/js/2.1416774d.chunk.js.LICENSE.txt",
+    "static/media/Chennai.8775643a.svg": "/covid-jaankari/static/media/Chennai.8775643a.svg",
+    "static/media/EdisonJobs_Logo.0b59fa06.svg": "/covid-jaankari/static/media/EdisonJobs_Logo.0b59fa06.svg",
+    "static/media/App.css": "/covid-jaankari/static/media/bg.e970572c.svg",
+    "static/media/call.38ae212e.svg": "/covid-jaankari/static/media/call.38ae212e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4deb4d4f.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.1416774d.chunk.js",
+    "static/css/main.0327d44d.chunk.css",
+    "static/js/main.78ddcf36.chunk.js"
+  ]
+}
