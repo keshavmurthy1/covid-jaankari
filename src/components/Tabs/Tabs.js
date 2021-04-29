@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Badge, Tab, Tabs } from 'react-bootstrap';
-import { FaPhoneAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 import Card from '../Card/Card';
+import Call from '../../asserts/call.svg';
 
-const MyTabs = () => {
+const MyTabs = ({ contactList = [] }) => {
+  console.log('MyTabs ~ contactList', contactList);
   const [key, setKey] = useState('contacts');
 
   const renderTabContent = (passed) => {
@@ -15,24 +16,27 @@ const MyTabs = () => {
     <TabsStyle id='controlled-tab' activeKey={key} onSelect={(k) => setKey(k)}>
       <Tab eventKey='contacts' title='CONTACTS'>
         <TabContent>
-          <Card>
-            <h4>Amogh Gases Pvt. Ltd</h4>
-            <p>
-              <BadgeStyle variant='secondary'>Verified</BadgeStyle> Updated 10
-              mins ago
-            </p>
-            <FlexBox>
-              <div>
-                <h5>Mahesh</h5>
-                <h6>9788345444</h6>
-              </div>
-              <IconWraaper>
-                <FaPhoneAlt />
-              </IconWraaper>
-            </FlexBox>
-          </Card>
+          {contactList.length ? (
+            contactList.map((el) => (
+              <Card>
+                <h4>{el.center}</h4>
+                <p>
+                  <BadgeStyle variant='secondary'>Verified</BadgeStyle> Updated
+                  10 mins ago
+                </p>
+                <FlexBox>
+                  <div>
+                    {/* <h5>Mahesh</h5> */}
+                    <h6>9788345444</h6>
+                  </div>
+                  <Image src={Call} alt='call icon' />
+                </FlexBox>
+              </Card>
+            ))
+          ) : (
+            <p>No contacts found</p>
+          )}
         </TabContent>
-        s
       </Tab>
       <Tab eventKey='chat groups' title='CHAT GROUPS'>
         {renderTabContent('CHAT GROUPS')}
@@ -93,9 +97,6 @@ const FlexBox = styled.div`
   width: 100%;
 `;
 
-const IconWraaper = styled.div`
-  background: blue;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 100%;
+const Image = styled.img`
+  display: block;
 `;

@@ -6,6 +6,7 @@ import Search from '../../components/Search';
 import Card from '../../components/Card/Card';
 import Cities from '../Cities';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import { FaChevronRight } from 'react-icons/fa';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -54,6 +55,7 @@ function Centers() {
               <strong>"{searchText}"</strong>
             </Nomatch>
           )}
+          <Footer />
         </Col>
       </StyledRow>
     </Container>

@@ -2,7 +2,7 @@
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
-  background-image: url('./asserts/bg.jpg');
+  background: lightblue url('./asserts/bg.svg') no-repeat fixed top right;
   position: relative;
 }
 

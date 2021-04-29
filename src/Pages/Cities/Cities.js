@@ -7,6 +7,8 @@ import Header from '../../components/Header';
 import Search from '../../components/Search';
 import Contacts from '../Contacts';
 import cityList from './cityList.json';
+import Chennai from '../../asserts/Chennai.svg';
+import Footer from '../../components/Footer';
 
 const Cities = ({ backClick, center }) => {
   const [city, setCity] = useState(null);
@@ -18,7 +20,7 @@ const Cities = ({ backClick, center }) => {
   const renderCards = (data) => (
     <ColStyle xs={6} sm={3}>
       <Card id={data.city} onClick={() => setCity(data)}>
-        <h4>img</h4>
+        <Image src={Chennai} alt='city picture' />
         <p>{data.city}</p>
       </Card>
     </ColStyle>
@@ -55,6 +57,7 @@ const Cities = ({ backClick, center }) => {
               <strong>"{searchText}"</strong>
             </Nomatch>
           )}
+          <Footer />
         </Col>
       </StyledRow>
     </Container>
@@ -79,4 +82,10 @@ const StyledRow = styled(Row)`
   width: 100%;
   margin: auto;
   padding: 15px 0;
+`;
+
+const Image = styled.img`
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
 `;
