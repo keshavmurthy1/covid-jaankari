@@ -9,7 +9,11 @@ const MyTabs = ({ contactList = [] }) => {
   const [key, setKey] = useState('contacts');
 
   const renderTabContent = (passed) => {
-    return <TabContent>{passed}</TabContent>;
+    return <TabContent>{`< ${passed} >`}</TabContent>;
+  };
+
+  const call = (phoneNumber) => {
+    window.open(`tel:${phoneNumber}`);
   };
 
   return (
@@ -19,17 +23,21 @@ const MyTabs = ({ contactList = [] }) => {
           {contactList.length ? (
             contactList.map((el) => (
               <Card>
-                <h4>{el.center}</h4>
+                <h4>{el.supplier_name}</h4>
                 <p>
-                  <BadgeStyle variant='secondary'>Verified</BadgeStyle> Updated
-                  10 mins ago
+                  <BadgeStyle variant='secondary'>{el.status}</BadgeStyle>{' '}
+                  Updated {new Date(el.time_stamp).toLocaleString()}
                 </p>
                 <FlexBox>
                   <div>
-                    {/* <h5>Mahesh</h5> */}
-                    <h6>9788345444</h6>
+                    <h5>{el.person_name}</h5>
+                    <h6>{el.phone_number}</h6>
                   </div>
-                  <Image src={Call} alt='call icon' />
+                  <Image
+                    src={Call}
+                    alt='call icon'
+                    onClick={() => call(el.phone_number)}
+                  />
                 </FlexBox>
               </Card>
             ))

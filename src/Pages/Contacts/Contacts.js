@@ -6,27 +6,51 @@ import Header from '../../components/Header';
 import Tabs from '../../components/Tabs/Tabs';
 import Footer from '../../components/Footer';
 
-const Contacts = ({ backClick, center, selectedCity }) => {
+const Contacts = ({ backClick, category, selectedCity }) => {
   const [contactList, setContactList] = useState([]);
-  useEffect(() => {
+
+  // const fetchfromGoogleSheets = () => {
+  //   axios
+  //     .post('https://covidjaankari.herokuapp.com/categorySearch/', {
+  //       key: 'a995168c-ff0d-454d-bdc5-5f0e669c169b',
+  //       City: 'Jaipur',
+  //       Category: 'Homecare & Nursing'
+  //     })
+  //     .then((res) => {
+  //       console.log('.then ~ res', res);
+  //       const { data: { feed: { entry = [] } = {} } = {} } = res;
+  //       const formattedList =
+  //         entry.length &&
+  //         entry.map((el) => ({
+  //           center: el.gsx$vamanpharmapvtltddirectsuppl.$t,
+  //           contact: el.gsx$_ciyn3,
+  //           updated: new Date(el.updated.$t)
+  //         }));
+  //       setContactList(formattedList || []);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
+
+  const fetchContacts = () => {
+    const data = new FormData();
+    data.append('key', 'a995168c-ff0d-454d-bdc5-5f0e669c169b');
+    data.append('City', `${selectedCity.city}`);
+    data.append('Category', `${category.name}`);
+
     axios
-      .get(
-        'https://spreadsheets.google.com/feeds/list/1CrkdbTO6y_n6IDfK0Q12qZOF8_b-3WUq7NgjB1NpoHg/od6/public/values?alt=json'
-      )
-      .then((res) => {
-        const { data: { feed: { entry = [] } = {} } = {} } = res;
-        const formattedList =
-          entry.length &&
-          entry.map((el) => ({
-            center: el.gsx$vamanpharmapvtltddirectsuppl.$t,
-            contact: el.gsx$_ciyn3,
-            updated: new Date(el.updated.$t)
-          }));
-        setContactList(formattedList || []);
+      .post('https://covidjaankari.herokuapp.com/categorySearch/', data)
+      .then(({ data = [] }) => {
+        setContactList(data || []);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
       });
+  };
+
+  useEffect(() => {
+    fetchContacts();
   }, []);
 
   return (
@@ -37,9 +61,9 @@ const Contacts = ({ backClick, center, selectedCity }) => {
             <Header isBackClick={backClick}>
               <p>
                 {contactList && contactList.length} contacts in{' '}
-                {selectedCity.city} for
+                <span>{selectedCity.city}</span> for
               </p>
-              <h2>{center.centerName}</h2>
+              <h2>{category.name}</h2>
             </Header>
           </Col>
         </StyledRow>
@@ -57,4 +81,9 @@ const StyledRow = styled(Row)`
   width: 100%;
   margin: auto;
   padding: 15px 0;
+  p > span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.15rem;
+  }
 `;

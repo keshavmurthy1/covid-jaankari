@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Homecare & Nursing",
+    "desc": "Find homecare and nursing for COVID in your city"
+  },
+  {
+    "name": "Home ICU",
+    "desc": "Find suppliers for Home ICU equipments in your city"
+  },
+  {
+    "name": "Diagnostic Labs",
+    "desc": "Find Diagnostic Labs in your city"
+  },
+  {
+    "name": "Oxygen Suppliers",
+    "desc": "Find Oxygen Suppliers in your city"
+  },
+  {
+    "name": "Medical Devices",
+    "desc": "Find resources that provide Medical Devices"
+  },
+  {
+    "name": "Ambulance",
+    "desc": "Find resources that provide Ambulance for COVID patients"
+  },
+  {
+    "name": "Food Providers",
+    "desc": "Find resources that provide Food for COVID patients"
+  },
+  {
+    "name": "Ration & Supplies",
+    "desc": "Connect with suppliers who provide Ration for your city"
+  },
+  {
+    "name": "After-Death Services",
+    "desc": "Find last-rite and documentation service for after-death"
+  },
+  {
+    "name": "Counselling & Mental Health",
+    "desc": "Find resources for Counselling & Mental Health"
+  }
+]

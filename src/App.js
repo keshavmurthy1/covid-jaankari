@@ -1,10 +1,10 @@
 import './App.css';
-import Centers from './Pages/Centers';
+import Categories from './Pages/Categories';
 
 function App() {
   return (
     <div className='app'>
-      <Centers />
+      <Categories />
     </div>
   );
 }

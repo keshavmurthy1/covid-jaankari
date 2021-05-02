@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import centerList from './covidCenters.json';
+import categories from './Categories.json';
 import Search from '../../components/Search';
 import Card from '../../components/Card/Card';
 import Cities from '../Cities';
@@ -11,27 +11,27 @@ import Footer from '../../components/Footer';
 import { FaChevronRight } from 'react-icons/fa';
 import { Col, Container, Row } from 'react-bootstrap';
 
-function Centers() {
-  const [center, setCenter] = useState(null);
+function Categories() {
+  const [category, setCategory] = useState(null);
   const [searchText, setSearchText] = useState('');
-  const filteredCenters = centerList.filter(
-    (el) => el.centerName.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+  const filteredCategories = categories.filter(
+    (el) => el.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
   );
 
-  const renderCards = (data) => (
-    <Card id={data.center} onClick={() => setCenter(data)}>
+  const renderCards = (category) => (
+    <Card key={category.name} onClick={() => setCategory(category)}>
       <FlexBox>
         <div>
-          <h4>{data.centerName}</h4>
-          <p>{data.desc}</p>
+          <h4>{category.name}</h4>
+          <p>{category.desc}</p>
         </div>
         <RightIcon />
       </FlexBox>
     </Card>
   );
 
-  if (center) {
-    return <Cities center={center} backClick={() => setCenter(null)} />;
+  if (category) {
+    return <Cities category={category} backClick={() => setCategory(null)} />;
   }
 
   return (
@@ -47,8 +47,8 @@ function Centers() {
             onChange={(e) => setSearchText(e.target.value)}
             autoFocus
           />
-          {filteredCenters.length ? (
-            filteredCenters.map((el) => renderCards(el))
+          {filteredCategories.length ? (
+            filteredCategories.map((el) => renderCards(el))
           ) : (
             <Nomatch>
               no matches for
@@ -62,7 +62,7 @@ function Centers() {
   );
 }
 
-export default Centers;
+export default Categories;
 
 const RightIcon = styled(FaChevronRight)`
   display: block;

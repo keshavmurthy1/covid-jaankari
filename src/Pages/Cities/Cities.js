@@ -10,7 +10,7 @@ import cityList from './cityList.json';
 import Chennai from '../../asserts/Chennai.svg';
 import Footer from '../../components/Footer';
 
-const Cities = ({ backClick, center }) => {
+const Cities = ({ backClick, category }) => {
   const [city, setCity] = useState(null);
   const [searchText, setSearchText] = useState('');
   const filteredcities = cityList.filter(
@@ -19,7 +19,7 @@ const Cities = ({ backClick, center }) => {
 
   const renderCards = (data) => (
     <ColStyle xs={6} sm={3}>
-      <Card id={data.city} onClick={() => setCity(data)}>
+      <Card key={data.city} onClick={() => setCity(data)}>
         <Image src={Chennai} alt='city picture' />
         <p>{data.city}</p>
       </Card>
@@ -29,7 +29,7 @@ const Cities = ({ backClick, center }) => {
   if (city) {
     return (
       <Contacts
-        center={center}
+        category={category}
         selectedCity={city}
         backClick={() => setCity(null)}
       />
@@ -41,7 +41,7 @@ const Cities = ({ backClick, center }) => {
       <StyledRow>
         <Col sm={12}>
           <Header isBackClick={backClick}>
-            <p>You need "{center.centerName}"</p>
+            <p>You need "{category.name}"</p>
             <h2>In which City?</h2>
           </Header>
           <Search
