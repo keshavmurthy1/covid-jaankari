@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
@@ -6,22 +6,27 @@ import Card from '../../components/Card/Card';
 import Header from '../../components/Header';
 import Search from '../../components/Search';
 import Contacts from '../Contacts';
-import cityList from './cityList.json';
+import stateObj from './cityList.json';
 import Chennai from '../../asserts/Chennai.svg';
 import Footer from '../../components/Footer';
+
+const cityList = Object.keys(stateObj).reduce(
+  (acc, key) => [...acc, ...stateObj[key]],
+  []
+);
 
 const Cities = ({ backClick, category }) => {
   const [city, setCity] = useState(null);
   const [searchText, setSearchText] = useState('');
   const filteredcities = cityList.filter(
-    (el) => el.city.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    (el) => el.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
   );
 
-  const renderCards = (data) => (
+  const renderCards = (city) => (
     <ColStyle xs={6} sm={3}>
-      <Card key={data.city} onClick={() => setCity(data)}>
+      <Card key={city} onClick={() => setCity(city)}>
         <Image src={Chennai} alt='city picture' />
-        <p>{data.city}</p>
+        <p>{city}</p>
       </Card>
     </ColStyle>
   );

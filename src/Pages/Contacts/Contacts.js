@@ -36,7 +36,7 @@ const Contacts = ({ backClick, category, selectedCity }) => {
   const fetchContacts = () => {
     const data = new FormData();
     data.append('key', 'a995168c-ff0d-454d-bdc5-5f0e669c169b');
-    data.append('City', `${selectedCity.city}`);
+    data.append('City', `${selectedCity}`);
     data.append('Category', `${category.name}`);
 
     axios
@@ -61,7 +61,7 @@ const Contacts = ({ backClick, category, selectedCity }) => {
             <Header isBackClick={backClick}>
               <p>
                 {contactList && contactList.length} contacts in{' '}
-                <span>{selectedCity.city}</span> for
+                <span>{selectedCity}</span> for
               </p>
               <h2>{category.name}</h2>
             </Header>
