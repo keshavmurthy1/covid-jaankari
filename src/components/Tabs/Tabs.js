@@ -5,7 +5,6 @@ import Card from '../Card/Card';
 import Call from '../../asserts/call.svg';
 
 const MyTabs = ({ contactList = [] }) => {
-  console.log('MyTabs ~ contactList', contactList);
   const [key, setKey] = useState('contacts');
 
   const renderTabContent = (passed) => {
@@ -14,6 +13,13 @@ const MyTabs = ({ contactList = [] }) => {
 
   const call = (phoneNumber) => {
     window.open(`tel:${phoneNumber}`);
+  };
+
+  const updatedDetails = (el) => {
+    var d = new Date(el.time_stamp);
+    d.setMinutes(d.getMinutes() - 330);
+
+    return d.toLocaleString();
   };
 
   return (
@@ -26,7 +32,7 @@ const MyTabs = ({ contactList = [] }) => {
                 <h4>{el.supplier_name}</h4>
                 <p>
                   <BadgeStyle variant='secondary'>{el.status}</BadgeStyle>{' '}
-                  Updated {new Date(el.time_stamp).toLocaleString()}
+                  Updated {updatedDetails(el)}
                 </p>
                 <FlexBox>
                   <div>
