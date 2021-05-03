@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import categories from './Categories.json';
 import Search from '../../components/Search';
 import Card from '../../components/Card/Card';
 import Cities from '../Cities';
@@ -10,20 +9,40 @@ import Footer from '../../components/Footer';
 
 import { FaChevronRight } from 'react-icons/fa';
 import { Col, Container, Row } from 'react-bootstrap';
+import axios from 'axios';
 
 function Categories() {
   const [category, setCategory] = useState(null);
   const [searchText, setSearchText] = useState('');
+  const [categories, setCategories] = useState([]);
   const filteredCategories = categories.filter(
-    (el) => el.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    (el) => el.facility.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
   );
 
+  const fetchCategories = () => {
+    const data = new FormData();
+    data.append('key', `${process.env.REACT_APP_API_KEY}`);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}`, data)
+      .then(({ data = [] }) => {
+        setCategories(data || []);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   const renderCards = (category) => (
-    <Card key={category.name} onClick={() => setCategory(category)}>
+    <Card key={category.facility} onClick={() => setCategory(category)}>
       <FlexBox>
         <div>
-          <h4>{category.name}</h4>
-          <p>{category.desc}</p>
+          <h4>{category.facility}</h4>
+          <p>{category.description}</p>
         </div>
         <RightIcon />
       </FlexBox>

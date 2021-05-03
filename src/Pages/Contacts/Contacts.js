@@ -36,8 +36,8 @@ const Contacts = ({ backClick, category, selectedCity }) => {
   const fetchContacts = () => {
     const data = new FormData();
     data.append('key', 'a995168c-ff0d-454d-bdc5-5f0e669c169b');
-    data.append('City', `${selectedCity}`);
-    data.append('Category', `${category.name}`);
+    data.append('City', selectedCity);
+    data.append('Category', category.facility);
 
     axios
       .post('https://covidjaankari.herokuapp.com/categorySearch/', data)
@@ -63,7 +63,7 @@ const Contacts = ({ backClick, category, selectedCity }) => {
                 {contactList && contactList.length} contacts in{' '}
                 <span>{selectedCity}</span> for
               </p>
-              <h2>{category.name}</h2>
+              <h2>{category.facility}</h2>
             </Header>
           </Col>
         </StyledRow>

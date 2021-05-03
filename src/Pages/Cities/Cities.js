@@ -6,27 +6,42 @@ import Card from '../../components/Card/Card';
 import Header from '../../components/Header';
 import Search from '../../components/Search';
 import Contacts from '../Contacts';
-import stateObj from './cityList.json';
-import Chennai from '../../asserts/Chennai.svg';
+import Delhi from '../../asserts/Delhi.svg';
 import Footer from '../../components/Footer';
-
-const cityList = Object.keys(stateObj).reduce(
-  (acc, key) => [...acc, ...stateObj[key]],
-  []
-);
+import axios from 'axios';
 
 const Cities = ({ backClick, category }) => {
   const [city, setCity] = useState(null);
   const [searchText, setSearchText] = useState('');
-  const filteredcities = cityList.filter(
-    (el) => el.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+  const [cities, setCities] = useState([]);
+  const filteredcities = cities.filter(
+    (el) => el.city.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
   );
 
-  const renderCards = (city) => (
-    <ColStyle xs={6} sm={3}>
-      <Card key={city} onClick={() => setCity(city)}>
-        <Image src={Chennai} alt='city picture' />
-        <p>{city}</p>
+  const fetchCities = () => {
+    const data = new FormData();
+    data.append('key', `${process.env.REACT_APP_API_KEY}`);
+    data.append('Category', `${category.facility}`);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}`, data)
+      .then(({ data = [] }) => {
+        setCities(data || []);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    fetchCities();
+  }, []);
+
+  const renderCards = (el) => (
+    <ColStyle key={el.city} xs={6} sm={3}>
+      <Card onClick={() => setCity(el.city)}>
+        <Image src={Delhi} alt='city picture' />
+        <p>{el.city}</p>
       </Card>
     </ColStyle>
   );
@@ -46,7 +61,7 @@ const Cities = ({ backClick, category }) => {
       <StyledRow>
         <Col sm={12}>
           <Header isBackClick={backClick}>
-            <p>You need "{category.name}"</p>
+            <p>You need "{category.facility}"</p>
             <h2>In which City?</h2>
           </Header>
           <Search
