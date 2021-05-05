@@ -29,22 +29,32 @@ const MyTabs = ({ contactList = [] }) => {
           {contactList.length ? (
             contactList.map((el) => (
               <Card>
-                <h4>{el.supplier_name}</h4>
+                <h4>Suplier name : {el.supplier_name}</h4>
                 <p>
                   <BadgeStyle variant='secondary'>{el.status}</BadgeStyle>{' '}
                   Updated {updatedDetails(el)}
                 </p>
                 <FlexBox>
+                  <h5>Name : {el.person_name}</h5>
+
+                  <div><h5>Website : {el.website}</h5></div>
+                </FlexBox>
+                <FlexBox>
                   <div>
-                    <h5>{el.person_name}</h5>
+                    <div><h5>Address : {el.address} </h5></div>
                     <h6>{el.phone_number}</h6>
                   </div>
+
+
                   <Image
                     src={Call}
                     alt='call icon'
                     onClick={() => call(el.phone_number)}
                   />
                 </FlexBox>
+                <div>{el.description}</div>
+
+
               </Card>
             ))
           ) : (

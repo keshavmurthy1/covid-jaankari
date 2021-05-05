@@ -10,11 +10,14 @@ import Footer from '../../components/Footer';
 import { FaChevronRight } from 'react-icons/fa';
 import { Col, Container, Row } from 'react-bootstrap';
 import axios from 'axios';
+import Loader from '../../components/Loader/loader';
 
 function Categories() {
   const [category, setCategory] = useState(null);
   const [searchText, setSearchText] = useState('');
   const [categories, setCategories] = useState([]);
+  const [isSpninner, setSpinner] = useState(false);
+
   const filteredCategories = categories.filter(
     (el) => el.facility.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
   );
@@ -23,10 +26,14 @@ function Categories() {
     const data = new FormData();
     data.append('key', `${process.env.REACT_APP_API_KEY}`);
 
+    setSpinner(true)
+
     axios
       .post(`${process.env.REACT_APP_API_URL}`, data)
       .then(({ data = [] }) => {
         setCategories(data || []);
+        setSpinner(false)
+
       })
       .catch((err) => {
         console.log(err);
@@ -66,14 +73,17 @@ function Categories() {
             onChange={(e) => setSearchText(e.target.value)}
             autoFocus
           />
-          {filteredCategories.length ? (
-            filteredCategories.map((el) => renderCards(el))
-          ) : (
-            <Nomatch>
-              no matches for
-              <strong>"{searchText}"</strong>
-            </Nomatch>
-          )}
+          {
+            isSpninner ? <Loader></Loader> :
+
+              filteredCategories.length ? (
+                filteredCategories.map((el) => renderCards(el))
+              ) : (
+                <Nomatch>
+                  no matches for
+                  <strong>"{searchText}"</strong>
+                </Nomatch>
+              )}
           <Footer />
         </Col>
       </StyledRow>
