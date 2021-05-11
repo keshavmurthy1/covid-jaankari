@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import Tabs from '../../components/Tabs/Tabs';
 import Footer from '../../components/Footer';
 
-const Contacts = ({ backClick, category, selectedCity }) => {
+const Contacts = ({ backClick, state = '', city = '', category = {} } = {}) => {
   const [contactList, setContactList] = useState([]);
 
   // const fetchfromGoogleSheets = () => {
@@ -36,7 +36,8 @@ const Contacts = ({ backClick, category, selectedCity }) => {
   const fetchContacts = () => {
     const data = new FormData();
     data.append('key', 'a995168c-ff0d-454d-bdc5-5f0e669c169b');
-    data.append('City', selectedCity);
+    data.append('State', `${state}`);
+    data.append('City', city);
     data.append('Category', category.facility);
 
     axios
@@ -60,8 +61,7 @@ const Contacts = ({ backClick, category, selectedCity }) => {
           <Col sm={12}>
             <Header isBackClick={backClick}>
               <p>
-                {contactList && contactList.length} contacts in{' '}
-                <span>{selectedCity}</span> for
+                {contactList && contactList.length} contacts in <span>{city}</span> for
               </p>
               <h2>{category.facility}</h2>
             </Header>

@@ -1,10 +1,10 @@
 import './App.css';
-import Categories from './Pages/Categories';
+import States from './Pages/States';
 
 function App() {
   return (
     <div className='app'>
-      <Categories />
+      <States />
     </div>
   );
 }

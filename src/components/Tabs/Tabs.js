@@ -29,32 +29,33 @@ const MyTabs = ({ contactList = [] }) => {
           {contactList.length ? (
             contactList.map((el) => (
               <Card>
-                <h4>Suplier name : {el.supplier_name}</h4>
+                <h4>Supplier: {el.supplier_name}</h4>
                 <p>
                   <BadgeStyle variant='secondary'>{el.status}</BadgeStyle>{' '}
                   Updated {updatedDetails(el)}
                 </p>
                 <FlexBox>
-                  <h5>Name : {el.person_name}</h5>
-
-                  <div><h5>Website : {el.website}</h5></div>
-                </FlexBox>
-                <FlexBox>
                   <div>
-                    <div><h5>Address : {el.address} </h5></div>
-                    <h6>{el.phone_number}</h6>
+                    <h5>Name : {el.person_name}</h5>
+                    <h5>Address : {el.address} </h5>
                   </div>
-
-
-                  <Image
-                    src={Call}
-                    alt='call icon'
-                    onClick={() => call(el.phone_number)}
-                  />
+                  <div>
+                    <div>
+                      <FlexBox>
+                        <h6>
+                          <strong>{el.phone_number}</strong>
+                        </h6>
+                        <Image
+                          src={Call}
+                          alt='call icon'
+                          onClick={() => call(el.phone_number)}
+                        />
+                      </FlexBox>
+                    </div>
+                    <h5>Website : {el.website}</h5>
+                  </div>
                 </FlexBox>
                 <div>{el.description}</div>
-
-
               </Card>
             ))
           ) : (
@@ -118,7 +119,6 @@ const FlexBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
 `;
 
 const Image = styled.img`

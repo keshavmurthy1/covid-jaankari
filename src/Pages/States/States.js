@@ -7,29 +7,27 @@ import Header from '../../components/Header';
 import Search from '../../components/Search';
 import Footer from '../../components/Footer';
 import Spinner from '../../components/Spinner';
-import Categories from '../Categories';
+import Cities from '../Cities';
 
 import { CardData } from '../../Utils/CardData';
 import { Message } from '../../Utils/Message';
 
-const Cities = ({ backClick, state = '' }) => {
+const States = () => {
   const [spinner, setSpinner] = useState(true);
-  const [cities, setCities] = useState([]);
-  const [filteredCities, setFilteredCities] = useState([]);
+  const [states, setStates] = useState([]);
+  const [filteredstates, setFilteredStates] = useState([]);
 
   const [searchText, setSearchText] = useState('');
-  const [city, setCity] = useState(null);
+  const [state, setState] = useState(null);
 
   useEffect(() => {
     const data = new FormData();
     data.append('key', `${process.env.REACT_APP_API_KEY}`);
-    data.append('State', `${state}`);
-
     axios
       .post(`${process.env.REACT_APP_API_URL}`, data)
       .then(({ data = [] }) => {
-        setCities(data || []);
-        setFilteredCities(data || []);
+        setStates(data || []);
+        setFilteredStates(data || []);
         setSpinner(false);
       })
       .catch((err) => {
@@ -38,40 +36,46 @@ const Cities = ({ backClick, state = '' }) => {
   }, []);
 
   useEffect(() => {
-    if (cities.length) {
-      const filteredItems = cities.filter(
-        ({ city = '' }) => city.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    if (states.length) {
+      const filteredItems = states.filter(
+        ({ state = '' }) => state.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
       );
-      setFilteredCities(filteredItems);
+      setFilteredStates(filteredItems);
     }
   }, [searchText]);
 
   const renderCards = useCallback(() => {
-    if (filteredCities.length) {
+    if (filteredstates.length) {
       return (
         <Row>
-          {filteredCities.map(({ city = '' }) => (
-            <CardData data={city} onClick={() => setCity(city)} />
+          {filteredstates.map((el) => (
+            <CardData data={el.state} onClick={() => setState(el.state)} />
           ))}
         </Row>
       );
     } else {
       return <Message msg={searchText} />;
     }
-  }, [filteredCities]);
+  }, [filteredstates]);
 
-  if (city) {
-    return <Categories state={state} city={city} backClick={() => setCity(null)} />;
+  if (state) {
+    return <Cities state={state} backClick={() => setState(null)} />;
   }
 
   return (
     <Container>
       <StyledRow>
         <Col sm={12}>
-          <Header isBackClick={backClick}>
-            <h2>which city in {state}?</h2>
+          <Header>
+            <p>Welcome to COVID jaankari</p>
+            <h2>Select your State</h2>
           </Header>
-          <Search placeholder='Search city' onChange={(e) => setSearchText(e.target.value)} autoFocus />
+          <Search
+            placeholder='Search city'
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            autoFocus
+          />
           {spinner && <Spinner />}
           {!spinner && renderCards()}
           <Footer />
@@ -81,7 +85,7 @@ const Cities = ({ backClick, state = '' }) => {
   );
 };
 
-export default Cities;
+export default States;
 
 const StyledRow = styled(Row)`
   display: block;
