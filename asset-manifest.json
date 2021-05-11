@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/covid-jaankari/static/css/main.c63b58ff.chunk.css",
-    "main.js": "/covid-jaankari/static/js/main.868986a6.chunk.js",
-    "main.js.map": "/covid-jaankari/static/js/main.868986a6.chunk.js.map",
-    "runtime-main.js": "/covid-jaankari/static/js/runtime-main.4715a265.js",
-    "runtime-main.js.map": "/covid-jaankari/static/js/runtime-main.4715a265.js.map",
-    "static/css/2.150d169a.chunk.css": "/covid-jaankari/static/css/2.150d169a.chunk.css",
-    "static/js/2.21ec4424.chunk.js": "/covid-jaankari/static/js/2.21ec4424.chunk.js",
-    "static/js/2.21ec4424.chunk.js.map": "/covid-jaankari/static/js/2.21ec4424.chunk.js.map",
-    "static/js/3.8b51bcd9.chunk.js": "/covid-jaankari/static/js/3.8b51bcd9.chunk.js",
-    "static/js/3.8b51bcd9.chunk.js.map": "/covid-jaankari/static/js/3.8b51bcd9.chunk.js.map",
-    "index.html": "/covid-jaankari/index.html",
-    "static/css/2.150d169a.chunk.css.map": "/covid-jaankari/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.c63b58ff.chunk.css.map": "/covid-jaankari/static/css/main.c63b58ff.chunk.css.map",
-    "static/js/2.21ec4424.chunk.js.LICENSE.txt": "/covid-jaankari/static/js/2.21ec4424.chunk.js.LICENSE.txt",
-    "static/media/Delhi.913436c2.svg": "/covid-jaankari/static/media/Delhi.913436c2.svg",
-    "static/media/EdisonJobs_Logo.b0789f51.svg": "/covid-jaankari/static/media/EdisonJobs_Logo.b0789f51.svg",
-    "static/media/App.css": "/covid-jaankari/static/media/bg.517c43d4.svg",
-    "static/media/call.584559da.svg": "/covid-jaankari/static/media/call.584559da.svg"
+    "main.css": "/static/css/main.2c90e7b3.chunk.css",
+    "main.js": "/static/js/main.c18a2b99.chunk.js",
+    "main.js.map": "/static/js/main.c18a2b99.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.082b2266.js",
+    "runtime-main.js.map": "/static/js/runtime-main.082b2266.js.map",
+    "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
+    "static/js/2.4b6d4242.chunk.js": "/static/js/2.4b6d4242.chunk.js",
+    "static/js/2.4b6d4242.chunk.js.map": "/static/js/2.4b6d4242.chunk.js.map",
+    "static/js/3.8b51bcd9.chunk.js": "/static/js/3.8b51bcd9.chunk.js",
+    "static/js/3.8b51bcd9.chunk.js.map": "/static/js/3.8b51bcd9.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.2c90e7b3.chunk.css.map": "/static/css/main.2c90e7b3.chunk.css.map",
+    "static/js/2.4b6d4242.chunk.js.LICENSE.txt": "/static/js/2.4b6d4242.chunk.js.LICENSE.txt",
+    "static/media/Delhi.cc04f636.svg": "/static/media/Delhi.cc04f636.svg",
+    "static/media/EdisonJobs_Logo.0b59fa06.svg": "/static/media/EdisonJobs_Logo.0b59fa06.svg",
+    "static/media/App.css": "/static/media/bg.e970572c.svg",
+    "static/media/call.38ae212e.svg": "/static/media/call.38ae212e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4715a265.js",
+    "static/js/runtime-main.082b2266.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.21ec4424.chunk.js",
-    "static/css/main.c63b58ff.chunk.css",
-    "static/js/main.868986a6.chunk.js"
+    "static/js/2.4b6d4242.chunk.js",
+    "static/css/main.2c90e7b3.chunk.css",
+    "static/js/main.c18a2b99.chunk.js"
   ]
 }
