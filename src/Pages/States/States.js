@@ -71,7 +71,7 @@ const States = () => {
             <h2>Select your State</h2>
           </Header>
           <Search
-            placeholder='Search city'
+            placeholder='Search State'
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             autoFocus
