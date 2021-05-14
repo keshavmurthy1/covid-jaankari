@@ -1,29 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.46e70142.chunk.css",
-    "main.js": "/static/js/main.18f1f4c9.chunk.js",
-    "main.js.map": "/static/js/main.18f1f4c9.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.36d0f154.js",
-    "runtime-main.js.map": "/static/js/runtime-main.36d0f154.js.map",
+    "main.css": "/static/css/main.9453b894.chunk.css",
+    "main.js": "/static/js/main.610dd50d.chunk.js",
+    "main.js.map": "/static/js/main.610dd50d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0186f8de.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0186f8de.js.map",
     "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
-    "static/js/2.9e17b5eb.chunk.js": "/static/js/2.9e17b5eb.chunk.js",
-    "static/js/2.9e17b5eb.chunk.js.map": "/static/js/2.9e17b5eb.chunk.js.map",
-    "static/js/3.ae697f16.chunk.js": "/static/js/3.ae697f16.chunk.js",
-    "static/js/3.ae697f16.chunk.js.map": "/static/js/3.ae697f16.chunk.js.map",
+    "static/js/2.d777e961.chunk.js": "/static/js/2.d777e961.chunk.js",
+    "static/js/2.d777e961.chunk.js.map": "/static/js/2.d777e961.chunk.js.map",
+    "static/js/3.7cb54d38.chunk.js": "/static/js/3.7cb54d38.chunk.js",
+    "static/js/3.7cb54d38.chunk.js.map": "/static/js/3.7cb54d38.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.46e70142.chunk.css.map": "/static/css/main.46e70142.chunk.css.map",
-    "static/js/2.9e17b5eb.chunk.js.LICENSE.txt": "/static/js/2.9e17b5eb.chunk.js.LICENSE.txt",
+    "static/css/main.9453b894.chunk.css.map": "/static/css/main.9453b894.chunk.css.map",
+    "static/js/2.d777e961.chunk.js.LICENSE.txt": "/static/js/2.d777e961.chunk.js.LICENSE.txt",
     "static/media/Delhi.913436c2.svg": "/static/media/Delhi.913436c2.svg",
     "static/media/EdisonJobs_Logo.b0789f51.svg": "/static/media/EdisonJobs_Logo.b0789f51.svg",
-    "static/media/App.css": "/static/media/bg.517c43d4.svg",
-    "static/media/call.584559da.svg": "/static/media/call.584559da.svg"
+    "static/media/App.css": "/static/media/bg.517c43d4.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.36d0f154.js",
+    "static/js/runtime-main.0186f8de.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.9e17b5eb.chunk.js",
-    "static/css/main.46e70142.chunk.css",
-    "static/js/main.18f1f4c9.chunk.js"
+    "static/js/2.d777e961.chunk.js",
+    "static/css/main.9453b894.chunk.css",
+    "static/js/main.610dd50d.chunk.js"
   ]
 }
